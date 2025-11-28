@@ -21,7 +21,7 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema);
 
-app.get("/get_app_the_entries",async(req,res)=>{
+app.get("/contact",async(req,res)=>{
 
   try {
     const data = await Contact.find();
