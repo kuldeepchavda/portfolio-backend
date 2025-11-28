@@ -21,7 +21,16 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema);
 
+app.get("/get_app_the_entries",async(req,res)=>{
 
+  try {
+    const data = await Contact.find();
+    res.status(200).json({"data":data})
+  } catch (error) {
+    res.status(400).json({"data":"fucked..."})
+    
+  }
+})
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
